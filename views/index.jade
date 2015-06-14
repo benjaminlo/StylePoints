@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 TEST
+  input(type="text" name="submitter" placeholder="submitter")
+  br
+  input(type="text" name="userid" placeholder="userid")
+  br
+  input(type="text" name="data" placeholder="data")
+  br
+  input(type="submit" name="submit" class="submit" value="Submit")
+  p Welcome to StylePoints
+  p Your outfits are:
+  table
+    tr
+      th(scope="col") Userid
+      th(scope="col") Outfitid
+      th(scope="col") Submitter
+      th(scope="col") Style Points
+      th(scope="col") Saved
+    each val in outfits
+      tr
+        td=val.userid
+        td=val.outfitId
+        td=val.submitter
+        td=val.style_points
+        td=val.saved
+      input(type="submit" name=val.outfitId class="save" value="Save " + val.outfitId)
