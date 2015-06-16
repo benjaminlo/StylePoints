@@ -25,4 +25,6 @@ block content
         td=val.submitter
         td=val.style_points
         td=val.saved
-      input(type="submit" name=val.outfitId class="save" value="Save " + val.outfitId)
+      input(type="submit" name=val.outfitId submitter=val.submitter class="save" value="Save " + val.outfitId)
+      input(type="submit" name=val.outfitId class="delete" value="Delete " + val.outfitId)
+      br

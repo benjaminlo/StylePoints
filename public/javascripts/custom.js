@@ -13,17 +13,34 @@ $(document).ready(function() {
     		},
     		dataType: "application/json"
     	});
+    	location.reload();
 	});
 
     $(".save").click(function() {
     	var outfitId = $(this).attr('name');
+    	var submitter = $(this).attr('submitter');
     	$.ajax ({
     		type: "POST",
     		url: "/save",
+    		data: {
+    			outfitId: outfitId,
+    			submitter: submitter
+    		},
+    		dataType: "application/json"
+    	});
+    	location.reload();
+    });
+
+    $(".delete").click(function() {
+    	var outfitId = $(this).attr('name');
+    	$.ajax ({
+    		type: "POST",
+    		url: "/delete",
     		data: {
     			outfitId: outfitId
     		},
     		dataType: "application/json"
     	});
+    	location.reload();
     });
 });

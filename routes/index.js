@@ -36,8 +36,23 @@ router.post('/submit', function(req, res, next) {
 router.post('/save', function(req, res, next) {
 	var db = req.db;
 	var outfitId = req.body.outfitId;
-	console.log(outfitId);
+	var submitter = req.body.submitter;
+	console.log("submitter: " + submitter);
 	db.collection('outfitcollection').update({outfitId: outfitId}, {$set: {saved: true}}, function(err, result) {
+		db.collection('usercollection').update({userid: parseInt(submitter)}, {$inc: {style_cred: 1}}, function(err, result) {
+			console.log("err: " + err);
+			console.log("result: " + result);
+			res.end();
+		});
+	});
+});
+
+/* POST home page. */
+router.post('/delete', function(req, res, next) {
+	var db = req.db;
+	var outfitId = req.body.outfitId;
+	console.log(outfitId);
+	db.collection('outfitcollection').remove({outfitId: outfitId}, function(err, result) {
 		res.end();
 	});
 });
