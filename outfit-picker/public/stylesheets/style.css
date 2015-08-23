@@ -1,0 +1,12 @@
+h1 {
+  font: 300 64px/72px "Lato", "Open Sans", Arial, sans-serif;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}

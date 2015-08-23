@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1 Welcome to StylePoints
+  input(type="text" name="wardrobeuserid" placeholder="wardrobeuserid")
+  br 
+  input(type="text" name="wardrobe" placeholder="wardrobe")
+  br
+  select(name="category")
+    option Outerwear
+    option Tops
+    option Bottoms
+    option Footwear
+  br
+  input(type="submit" class="btn btn-default" name="submit" class="wardrobe_submit" value="Submit Wardrobe")
+  br
+  br
+  input(type="text" name="submitter" placeholder="submitter")
+  br
+  input(type="text" name="userid" placeholder="userid")
+  br
+  input(type="text" name="data" placeholder="data")
+  br
+  input(type="submit" class="submit" name="submit" value="Submit Outfit")
+  p Your outfits are:
+  table
+    tr
+      th(scope="col") Userid
+      th(scope="col") Outfitid
+      th(scope="col") Submitter
+      th(scope="col") Style Points
+      th(scope="col") Saved
+    each val in outfits
+      tr
+        td=val.userid
+        td=val.outfitId
+        td=val.submitter
+        td=val.style_points
+        td=val.saved
+      input(type="submit" class="save btn btn-default" name=val.outfitId submitter=val.submitter value="Save " + val.outfitId)
+      input(type="submit" class="delete btn btn-default" name=val.outfitId value="Delete " + val.outfitId)
+      input(type="submit" class="style btn btn-default" name=val.outfitId value="Style " + val.outfitId)
